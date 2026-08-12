@@ -3,7 +3,7 @@
     --ios-bg: #111111; /* Fundo mais escuro para parecer apresentação de tela cheia */
     --card-bg-dark: rgba(30, 30, 30, 0.75);
     --campaign-blue: #0033a0;
-    --campaign-yellow: #ffd100;
+    --campaign-blue: #0066FF;
     --text-primary: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.85);
 }
@@ -85,7 +85,7 @@ body, html {
     border-radius: 20px;
     padding: 28px;
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    border-left: 6px solid var(--campaign-yellow); 
+    border-left: 6px solid var(--campaign-blue); 
 }
 
 .glass-panel h2 {
