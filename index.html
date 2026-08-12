@@ -47,11 +47,60 @@
             position: relative;
             z-index: 2;
         }
+
+        /* Orientação para o Usuário */
+        .instruction-overlay {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            z-index: 100;
+            pointer-events: none;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            animation: pulse 2s infinite;
+            text-align: center;
+            white-space: nowrap;
+            transition: opacity 0.5s ease;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.8; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+            100% { opacity: 0.8; transform: translateX(-50%) scale(1); }
+        }
+
+        .desktop-text { display: inline; }
+        .mobile-text { display: none; }
+
+        @media (max-width: 900px) {
+            .desktop-text { display: none; }
+            .mobile-text { display: inline; }
+            /* Oculta visualmente a barra de rolagem no mobile para focar no toque */
+            ::-webkit-scrollbar { display: none; }
+            html, body { -ms-overflow-style: none; scrollbar-width: none; }
+            
+            /* Impede rolagem manual no celular para forçar o toque */
+            body { overflow: hidden; } 
+        }
     </style>
 </head>
 <body>
     <div class="scrollytelling-container">
         
+        <!-- Instrução de Navegação -->
+        <div id="instruction-overlay" class="instruction-overlay">
+            <span class="desktop-text">Role para baixo para ver ⬇</span>
+            <span class="mobile-text">Toque na tela para passar as imagens 👆</span>
+        </div>
+
         <!-- Camada Visual Fixa (Imagens em Tela Cheia) -->
         <div class="visual-container" id="visual-container">
 
@@ -269,6 +318,51 @@
     
         </div>
     </div>
+    
     <script src="js/script.js"></script>
+
+    <!-- Script Extra para Controle de Toque no Celular e Ocultar Instruções -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const instructionOverlay = document.getElementById('instruction-overlay');
+            let isMobile = window.innerWidth <= 900;
+            let currentStepIndex = 0;
+            const steps = document.querySelectorAll('.step');
+
+            // Ocultar overlay na primeira interação
+            const hideOverlay = () => {
+                if (instructionOverlay.style.opacity !== '0') {
+                    instructionOverlay.style.opacity = '0';
+                }
+            };
+
+            // Evento para Desktop (ocultar ao scrollar)
+            window.addEventListener('scroll', hideOverlay, { once: true });
+
+            // Evento para Mobile (avançar tocando na tela)
+            document.addEventListener('click', () => {
+                hideOverlay();
+                
+                if (isMobile) {
+                    // Avança para o próximo slide
+                    currentStepIndex++;
+                    if (currentStepIndex >= steps.length) {
+                        currentStepIndex = 0; // Se quiser que reinicie no final. Caso contrário: currentStepIndex = steps.length - 1;
+                    }
+                    
+                    // Rola a tela programaticamente simulando o scroll
+                    window.scrollTo({
+                        top: steps[currentStepIndex].offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+
+            // Atualiza o isMobile caso o usuário redimensione a janela
+            window.addEventListener('resize', () => {
+                isMobile = window.innerWidth <= 900;
+            });
+        });
+    </script>
 </body>
 </html>
