@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apresentação Materiais - CHICO 45678</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Ajustes para o fundo desfocado (substituindo o fundo preto) */
+        #visual-container {
+            background-color: #111; 
+        }
+
+        .visual-content {
+            background-image: none !important; /* Desativa a imagem original para recriá-la em camadas */
+        }
+
+        /* Camada 1: Fundo esticado e desfocado */
+        .visual-content::before {
+            content: "";
+            position: absolute;
+            top: -10%; left: -10%; width: 120%; height: 120%; /* Margem extra para não marcar as bordas do blur */
+            background-image: var(--bg-url);
+            background-size: cover;
+            background-position: center;
+            filter: blur(25px) brightness(0.4); /* Desfoca e escurece para destacar a arte */
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Camada 2: Imagem principal nítida (Contain) */
+        .visual-content::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: var(--bg-url);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Garante que a caixa de texto interativa fique acima das imagens */
+        .tag-box {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="scrollytelling-container">
+        
+        <!-- Camada Visual Fixa (Imagens em Tela Cheia) -->
+        <div class="visual-container" id="visual-container">
+
+            <div class="visual-content active" id="bg-intro" style="--bg-url: url('img/slide-01.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Identidade Visual 2026</h2>
+                    <p>CHICO 45678<br>O MÉDIO NORTE AGORA TEM REPRESENTANTE!<br>PSDB</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-carro-arte" style="--bg-url: url('img/slide-02.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Adesivo de Carro (Arte)</h2>
+                    <p>Design do modelo perfurado para vidro traseiro.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-carro-mockup" style="--bg-url: url('img/slide-03.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Aplicação no Veículo</h2>
+                    <p>Simulação do adesivo aplicado no vidro do carro.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-bandeira-arte" style="--bg-url: url('img/slide-04.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Bandeiras (Arte)</h2>
+                    <p>Cores vibrantes em formato 140x100cm.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-bandeira-mockup" style="--bg-url: url('img/slide-05.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Bandeiras em Ação</h2>
+                    <p>Simulação do material sendo utilizado nas ruas.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-praguinha-arte" style="--bg-url: url('img/slide-06.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Praguinhas (Arte)</h2>
+                    <p>Layout nos tamanhos 5x5cm e 7x7cm para uso no peito.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-praguinha-mockup" style="--bg-url: url('img/slide-07.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Praguinhas Aplicadas</h2>
+                    <p>Visão em lote, simulando o material pronto para distribuição.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-bolacha-arte" style="--bg-url: url('img/slide-08.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Adesivo Bolacha (Arte)</h2>
+                    <p>Arte no tamanho 50x50cm e parachoque 30x10cm.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-bolacha-mockup" style="--bg-url: url('img/slide-09.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Aplicação em Veículos</h2>
+                    <p>Simulação do adesivo bolacha nas portas e parachoque.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-santinho" style="--bg-url: url('img/slide-10.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Santinho</h2>
+                    <p>Tamanho: 7x10cm com espaço para preenchimento da coligação.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-windbanner" style="--bg-url: url('img/slide-11.png');">
+                <div class="tag-box glass-panel">
+                    <h2>WindBanner</h2>
+                    <p>Tamanho: 70x200cm, excelente para visibilidade em eventos.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-instagram-arte" style="--bg-url: url('img/slide-12.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Moldura Instagram (Arte)</h2>
+                    <p>Placa de PVC 80x85cm com a interface do Instagram.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-instagram-mockup" style="--bg-url: url('img/slide-13.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Interação com o Eleitor</h2>
+                    <p>Simulação do uso da moldura em fotos nas ruas.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-etiqueta-arte" style="--bg-url: url('img/slide-14.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Etiquetas (Arte)</h2>
+                    <p>Tamanho: 10x5cm para aplicações diversas no dia a dia da campanha.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-etiqueta-mockup" style="--bg-url: url('img/slide-15.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Etiquetas na Prática</h2>
+                    <p>Simulação da etiqueta sendo distribuída/aplicada em veículos.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-moto-arte" style="--bg-url: url('img/slide-16.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Adesivo Moto (Arte)</h2>
+                    <p>Formato especial e alongado de 18x5cm.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-moto-mockup" style="--bg-url: url('img/slide-17.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Aplicação na Moto</h2>
+                    <p>Simulação de colagem no tanque e carenagens.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-oculos-arte" style="--bg-url: url('img/slide-18.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Adesivo para Óculos (Arte)</h2>
+                    <p>Lettering forte com a hashtag #TÔCOMCHICO.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-oculos-mockup" style="--bg-url: url('img/slide-19.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Óculos na Prática</h2>
+                    <p>Aplicação criativa nas lentes, ideal para redes sociais.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-residencia-arte" style="--bg-url: url('img/slide-20.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Placa Residência (Arte)</h2>
+                    <p>Layout horizontal (18x7cm) para os lares.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-residencia-mockup" style="--bg-url: url('img/slide-21.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Placa nos Lares</h2>
+                    <p>Simulação da placa aplicada em um portão residencial.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-camisa-azul" style="--bg-url: url('img/slide-22.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Arte Camisas</h2>
+                    <p>Mockup da versão principal da camisa para a equipe de rua.</p>
+                </div>
+            </div>
+    
+            <div class="visual-content " id="bg-camisa-amarela" style="--bg-url: url('img/slide-23.png');">
+                <div class="tag-box glass-panel">
+                    <h2>Camisas Impressas</h2>
+                    <p>Mockup da versão alternativa, garantindo destaque.</p>
+                </div>
+            </div>
+    
+        </div>
+
+        <!-- Área de Rolagem Fantasma (Controla as trocas ao rolar a página) -->
+        <div class="scroll-triggers">
+
+            <div class="step" data-target="bg-intro"></div>
+    
+            <div class="step" data-target="bg-carro-arte"></div>
+    
+            <div class="step" data-target="bg-carro-mockup"></div>
+    
+            <div class="step" data-target="bg-bandeira-arte"></div>
+    
+            <div class="step" data-target="bg-bandeira-mockup"></div>
+    
+            <div class="step" data-target="bg-praguinha-arte"></div>
+    
+            <div class="step" data-target="bg-praguinha-mockup"></div>
+    
+            <div class="step" data-target="bg-bolacha-arte"></div>
+    
+            <div class="step" data-target="bg-bolacha-mockup"></div>
+    
+            <div class="step" data-target="bg-santinho"></div>
+    
+            <div class="step" data-target="bg-windbanner"></div>
+    
+            <div class="step" data-target="bg-instagram-arte"></div>
+    
+            <div class="step" data-target="bg-instagram-mockup"></div>
+    
+            <div class="step" data-target="bg-etiqueta-arte"></div>
+    
+            <div class="step" data-target="bg-etiqueta-mockup"></div>
+    
+            <div class="step" data-target="bg-moto-arte"></div>
+    
+            <div class="step" data-target="bg-moto-mockup"></div>
+    
+            <div class="step" data-target="bg-oculos-arte"></div>
+    
+            <div class="step" data-target="bg-oculos-mockup"></div>
+    
+            <div class="step" data-target="bg-residencia-arte"></div>
+    
+            <div class="step" data-target="bg-residencia-mockup"></div>
+    
+            <div class="step" data-target="bg-camisa-azul"></div>
+    
+            <div class="step" data-target="bg-camisa-amarela"></div>
+    
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
